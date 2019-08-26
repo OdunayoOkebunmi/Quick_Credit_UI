@@ -2,7 +2,7 @@ import React from 'react';
 
 const App = () => (
   <div className="app">
-    Hello World!
+    Welcome to Quick Credit!
   </div>
 );
 export default App;
