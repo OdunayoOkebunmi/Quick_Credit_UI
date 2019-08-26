@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev-server": "webpack-dev-server --open",
     "start": "webpack"
   },
@@ -44,6 +44,11 @@
     "webpack-dev-server": "^3.7.1"
   },
   "dependencies": {
+    "babel-jest": "^24.9.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
+    "jest": "^24.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
