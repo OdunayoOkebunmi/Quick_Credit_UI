@@ -38,7 +38,7 @@ node_modules
 .node_repl_history
 
 .env
-.package-lock.json
+
 #build
 ./dist
 

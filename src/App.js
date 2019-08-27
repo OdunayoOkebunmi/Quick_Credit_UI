@@ -1,15 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './redux/reducers/index';
-import App from './components/App';
-import './index.css';
+import store from './redux/store';
+import './app.scss';
 
-const store = createStore(rootReducer);
-ReactDOM.render(
+const App = () => (
   <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root'),
+    <div className="app">
+      Welcome to Quick Credit!
+    </div>
+  </Provider>
 );
+export default App;
