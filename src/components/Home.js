@@ -1,4 +1,5 @@
 import React from 'react';
+import './app.scss';
 
 const Home = () => (
   <div className="app">
