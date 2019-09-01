@@ -39,6 +39,7 @@ node_modules
 .env
 
 #build
+build
 ./dist
 
 .vscode
