@@ -39,7 +39,7 @@ module.exports = {
     "no-console": 2,
     "class-methods-use-this": 0,
     "curly": ["error", "multi-line"],
-    "import/no-unresolved": [2, { "commonjs": true }],
+    "import/no-unresolved": 0,
     "no-shadow": ["error", { "allow": ["req", "res", "err"] }],
   },
   "settings": {

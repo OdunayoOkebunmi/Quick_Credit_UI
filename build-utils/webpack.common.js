@@ -2,6 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -20,7 +21,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
     alias: {
       '@': path.resolve(__dirname, 'src/'),
     },
