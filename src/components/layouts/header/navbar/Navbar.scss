@@ -1,0 +1,30 @@
+ .nav-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem;
+} .nav-bar .nav-items {
+  display: flex;
+  list-style: none;
+} .nav-bar .nav-items .nav-link {
+  text-decoration: none;
+  margin-left: 5rem;
+  font-size: 1.5rem;
+  color: #fff;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+}
+@media only screen and (max-width: 600px) {
+ .nav-bar .nav-items .nav-link:first-child {
+    margin-left: 0;
+    margin-right: 2rem;
+  }
+} .nav-bar .nav-items .nav-link__register {
+  border: 1px solid var(--color-primary);
+  padding: 1rem 1.6rem;
+  border-radius: 3px;
+}
+ .nav-bar .nav-items .nav-link__login:hover {
+  color: var(--color-primary);
+} .nav-bar .nav-items .nav-link__register:hover {
+  background-color: var(--color-primary);
+}

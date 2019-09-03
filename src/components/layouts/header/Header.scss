@@ -1,0 +1,145 @@
+/* variables */
+:root {
+  --color-primary: #b23242;
+  --color-primary-light: #ff6175;
+}
+/* BASE STYLING */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* 1rem = 10px; 10px/16px = 62.5% */
+  font-size: 62.5%;
+}
+@media only screen and (max-width: 1200px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  padding: 3rem;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: #777;
+  line-height: 1.7;
+}
+@media only screen and (max-width: 900px) {
+  body {
+    padding: 0;
+  }
+}
+
+
+/* typography */
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+
+
+  &--main{
+      display: block;
+      font-size: 6rem;
+      font-weight: 400;
+      letter-spacing: 3rem;
+      animation: moveInLeft 2s ease-out;
+  }
+  &--sub{
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.5rem;
+  animation: moveInRight 2s ease-out;
+}
+@media only screen and (max-width: 600px) {
+  .heading-primary--sub {
+    letter-spacing: 0.5rem;
+  }
+}
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+  margin: 3rem 0;
+}
+@media only screen and (max-width: 900px) {
+  .heading-secondary {
+    font-size: 3rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .heading-secondary {
+    font-size: 2.5rem;
+  }
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+
+/* +++++++++++ STYLING FOR HEADER +++++++++++++++ */
+.header {
+  height: 95vh;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
+    url(../../images/home-bgd-3-sm.jpg) no-repeat center top;
+  background-size: cover;
+  position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+@media only screen and (max-width: 600px) {
+  .header {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header .nav-bar .nav-items .nav-link:first-child {
+    margin-left: 0;
+    margin-right: 2rem;
+  }
+}
+
+
+.header .nav-bar .nav-items .nav-link__login:hover {
+  color: var(--color-primary);
+}
+.header .nav-bar .nav-items .nav-link__register:hover {
+  background-color: var(--color-primary);
+}
+
+.header__text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
