@@ -12,18 +12,22 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),
     port: 9000,
+    historyApiFallback: true,
   },
   module: {
     rules: [
       { test: /\.(js)$/, exclude: /node_modules/, use: ['babel-loader', 'eslint-loader'] },
-      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+      { test: /\.(css|sass|scss)$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
       { test: /\.(gif|png|jpe?g|svg)$/i, use: 'file-loader' },
     ],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '@': path.resolve(__dirname, 'src/'),
+      '@': path.resolve(__dirname, '../', 'src/'),
+      '@Images': path.resolve(__dirname, '../', 'src/components/images/'),
+      '@Common': path.resolve(__dirname, '../', 'src/components/common/'),
+      '@Layouts': path.resolve(__dirname, '../', 'src/components/layouts//'),
     },
   },
   plugins: [
