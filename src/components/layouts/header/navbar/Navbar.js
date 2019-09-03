@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
-import LogoSmall from '../../../images/logo-sm.png';
-import LogoMedium from '../../../images/logo-md.png';
+import LogoSmall from '@Images/logo-sm.png';
+import LogoMedium from '@Images/logo-md.png';
 
 import './Navbar.scss';
 

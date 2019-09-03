@@ -27,7 +27,8 @@ module.exports = {
       '@': path.resolve(__dirname, '../', 'src/'),
       '@Images': path.resolve(__dirname, '../', 'src/components/images/'),
       '@Common': path.resolve(__dirname, '../', 'src/components/common/'),
-      '@Layouts': path.resolve(__dirname, '../', 'src/components/layouts//'),
+      '@Layouts': path.resolve(__dirname, '../', 'src/components/layouts/'),
+      '@Pages': path.resolve(__dirname, '../', 'src/components/layouts/pages/'),
     },
   },
   plugins: [

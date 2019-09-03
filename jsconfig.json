@@ -13,6 +13,9 @@
       "@Layouts/*": [
         "src/components/layouts/*"
       ],
+      "@Pages/*": [
+        "src/components/layouts/pages/*"
+      ],
     }
   },
   "exclude": [

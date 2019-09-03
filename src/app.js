@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Header from '@Layouts/header/Header';
+import Home from '@Pages/home/Home';
 import store from './redux/store';
 import PageNotFound from './components/PageNotFound';
 
@@ -10,7 +10,7 @@ const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Header} />
+        <Route exact path="/" component={Home} />
         <Route path="*" component={PageNotFound} />
       </Switch>
     </BrowserRouter>
