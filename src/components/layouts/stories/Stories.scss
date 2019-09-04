@@ -1,0 +1,92 @@
+
+/* +++++++++++ STYLING FOR SECTION STORIES ++++++++++ */
+.section-stories {
+  position: relative;
+  padding: 10rem 0;
+}
+@media only screen and (max-width: 900px) {
+  .section-stories {
+    margin-top: -10rem;
+    padding: 10rem 0;
+  }
+}
+
+.section-stories .row .story {
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 8rem;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: 2rem;
+  transform: skewX(-12deg);
+}
+@media only screen and (max-width: 900px) {
+  .section-stories .row .story {
+    width: 80%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .section-stories .row .story {
+    transform: skewX(0);
+  }
+}
+
+.section-stories .row .story .story__shape {
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  background-color: var(--color-primary-light);
+  float: left;
+  -webkit-shape-outside: circle(50% at 50% 50%);
+  shape-outside: circle(50% at 50% 50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  transform: translateX(-3rem) skewX(12deg);
+}
+@media only screen and (max-width: 600px) {
+  .section-stories .row .story .story__shape {
+    transform: translateX(-3rem) skewX(0);
+  }
+}
+.section-stories .row .story .story__img {
+  height: 100%;
+  transform: translateX(-4rem) scale(1.4);
+  backface-visibility: hidden;
+  transition: all 0.5s;
+}
+
+.section-stories .row .story .story__text {
+  transform: skewX(12deg);
+}
+@media only screen and (max-width: 600px) {
+  .section-stories .row .story .story__text {
+    transform: skewX(0);
+  }
+}
+.section-stories .row .story .story__caption {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.5s;
+  backface-visibility: hidden;
+}
+
+.section-stories .row .story:hover .story__caption {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.section-stories .row .story:hover .story__img {
+  transform: translateX(-4rem) scale(1);
+  filter: blur(3px) brightness(80%);
+}

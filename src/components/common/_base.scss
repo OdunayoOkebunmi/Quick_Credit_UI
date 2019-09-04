@@ -1,0 +1,42 @@
+/* variables */
+:root {
+  --color-primary: #b23242;
+  --color-primary-light: #ff6175;
+}
+/* BASE STYLING */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* 1rem = 10px; 10px/16px = 62.5% */
+  font-size: 62.5%;
+}
+@media only screen and (max-width: 1200px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  padding: 3rem;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: #777;
+  line-height: 1.7;
+}
+@media only screen and (max-width: 900px) {
+  body {
+    padding: 0;
+  }
+}

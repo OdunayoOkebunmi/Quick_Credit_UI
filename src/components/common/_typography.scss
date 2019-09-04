@@ -1,0 +1,59 @@
+
+/* typography */
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+
+
+  &--main{
+      display: block;
+      font-size: 6rem;
+      font-weight: 400;
+      letter-spacing: 3rem;
+      animation: moveInLeft 2s ease-out;
+  }
+  &--sub{
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.5rem;
+  animation: moveInRight 2s ease-out;
+}
+@media only screen and (max-width: 600px) {
+  .heading-primary--sub {
+    letter-spacing: 0.5rem;
+  }
+}
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+  margin: 3rem 0;
+}
+@media only screen and (max-width: 900px) {
+  .heading-secondary {
+    font-size: 3rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .heading-secondary {
+    font-size: 2.5rem;
+  }
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 2rem 0;
+}
