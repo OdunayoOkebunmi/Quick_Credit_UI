@@ -21,9 +21,9 @@
   "author": "Odunayo Okebunmi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/OdunayoOkebunmi/Quick_Credit/issues"
+    "url": "https://github.com/OdunayoOkebunmi/Quick_Credit_UI/issues"
   },
-  "homepage": "https://github.com/OdunayoOkebunmi/Quick_Credit#readme",
+  "homepage": "https://github.com/OdunayoOkebunmi/Quick_Credit_UI#readme",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",

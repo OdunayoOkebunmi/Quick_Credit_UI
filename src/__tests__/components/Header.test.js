@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Header from './Header';
+import Header from '@Layouts/header/Header';
 
-describe('Home', () => {
+describe('Header', () => {
   it('should render without crashing', () => {
     mount(<Header />);
   });

@@ -1,0 +1,74 @@
+
+/* +++++++ STYLING FOR SECTION-LOAN-CALCULATOR */
+.section-loan-calculator {
+  margin-top: -15rem;
+  padding-top: 20rem;
+  margin-bottom: 5rem;
+}
+.loan-calculator-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+}
+@media only screen and (max-width: 900px) {
+  .loan-calculator-container {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .loan-calculator-container {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+.loan-calculator-container .card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  flex: 0 0 40%;
+  padding: 2.5rem;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.2s;
+}
+
+.loan-calculator-container .card .heading-secondary {
+  color: var(--color-primary);
+}
+.loan-calculator-container .card .form-group {
+  margin-bottom: 1rem;
+}
+.loan-calculator-container .card .form-group .btn {
+  margin-top: 3rem;
+}
+.loan-calculator-container .card .form-group .input-group {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+.form-group .form-control,.monthly-payment .form-control    {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  margin: 1rem 0;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  transition: all 0.2s;
+  font-size: 1.5rem;
+}
+
+.loan-calculator-container .card .form-group .input-group label {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+.loan-calculator-container .card #loading,
+.loan-calculator-container .card #results {
+  text-align: center;
+}
