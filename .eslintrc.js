@@ -41,6 +41,8 @@ module.exports = {
     "curly": ["error", "multi-line"],
     "import/no-unresolved": 0,
     "no-shadow": ["error", { "allow": ["req", "res", "err"] }],
+    "jsx-a11y/label-has-for": 0,
+    "jsx-a11y/label-has-associated-control": 0
   },
   "settings": {
     "import/resolver": {
