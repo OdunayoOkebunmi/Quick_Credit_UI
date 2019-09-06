@@ -1,3 +1,3 @@
-const GET_ERRORS = 'GETTING ERRORS';
-
-export { GET_ERRORS as default };
+export const AUTH_LOADING = 'AUTH_LOADING';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const AUTH_FAILED = 'AUTH_FAILED';

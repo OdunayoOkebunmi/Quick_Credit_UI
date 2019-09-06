@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Navbar.scss';
 
 const Navbar = () => (
@@ -20,18 +20,15 @@ const Navbar = () => (
     </a>
     <ul className="nav-items">
       <li>
-        <BrowserRouter>
-          <Link to="/signin" className=" nav-link nav-link__login">
-            Login
-          </Link>
-        </BrowserRouter>
+        <Link to="/signin" className=" nav-link nav-link__login">
+          Login
+        </Link>
       </li>
       <li>
-        <BrowserRouter>
-          <Link to="/signup" className=" nav-link nav-link__register">
-            Register
-          </Link>
-        </BrowserRouter>
+        <Link to="/signup" className=" nav-link nav-link__register">
+          Register
+        </Link>
+
       </li>
     </ul>
   </nav>
