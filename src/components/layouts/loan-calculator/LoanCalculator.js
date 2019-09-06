@@ -36,8 +36,8 @@ class LoanCalculator extends Component {
     }
   }
 
-  handleFormSubmit = (e) => {
-    e.preventDefault();
+  handleFormSubmit = (event) => {
+    event.preventDefault();
     this.calculateLoan();
     this.setState({
       isResultVisible: true,

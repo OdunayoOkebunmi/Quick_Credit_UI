@@ -1,10 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
-import './Header.scss';
+import { Link } from 'react-router-dom';
 import Navbar from './navbar/Navbar';
-import '@Common/_buttons.scss';
-import '@Common/_animations.scss';
-import '@Common/_typography.scss';
+import './Header.scss';
 
 const Header = () => (
 
@@ -17,11 +14,9 @@ const Header = () => (
           Getting instant loan is as easy as pie
         </span>
       </h1>
-      <BrowserRouter>
-        <Link to="/signup" className="btn btn--white btn--animated">
-          Apply here
-        </Link>
-      </BrowserRouter>
+      <Link to="/signup" className="btn btn--white btn--animated">
+        Apply here
+      </Link>
     </div>
   </header>
 );

@@ -16,6 +16,12 @@
       "@Pages/*": [
         "src/components/layouts/pages/*"
       ],
+      "@Actions/*": [
+        "src/redux/actions/*"
+      ],
+      "@Reducers/*": [
+        "src/redux/reducers/*"
+      ]
     }
   },
   "exclude": [

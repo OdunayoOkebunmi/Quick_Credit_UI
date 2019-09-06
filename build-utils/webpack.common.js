@@ -29,6 +29,9 @@ module.exports = {
       '@Common': path.resolve(__dirname, '../', 'src/components/common/'),
       '@Layouts': path.resolve(__dirname, '../', 'src/components/layouts/'),
       '@Pages': path.resolve(__dirname, '../', 'src/components/layouts/pages/'),
+      '@Actions': path.resolve(__dirname, '../', 'src/redux/actions/'),
+      '@Reducers': path.resolve(__dirname, '../', 'src/redux/reducers/'),
+
     },
   },
   plugins: [
