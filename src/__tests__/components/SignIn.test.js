@@ -3,7 +3,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { mount } from 'enzyme';
-import SignUp, { SignUpComponent } from '@Layouts/pages/signup/SignUp';
+import SignIn, { SignInComponent } from '@Layouts/pages/signin/SignIn';
 
 const initialState = {
   auth: {
@@ -22,11 +22,11 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore(initialState);
 
-describe('<SignUp/>', () => {
+describe('<SignIn/>', () => {
   it('should render without crashing', () => {
     mount(
       <Router>
-        <SignUp store={store} {...props} />
+        <SignIn store={store} {...props} />
       </Router>,
     );
   });
@@ -34,18 +34,18 @@ describe('<SignUp/>', () => {
   it('Should render along with children component', () => {
     const component = mount(
       <Router>
-        <SignUp store={store} {...props} />
+        <SignIn store={store} {...props} />
       </Router>,
     );
     expect(component.find('button')).toHaveLength(1);
-    expect(component.find('input')).toHaveLength(5);
+    expect(component.find('input')).toHaveLength(2);
     component.unmount();
   });
 
   it('should call onChange props for email input', () => {
     const component = mount(
       <Router>
-        <SignUp store={store} {...props} />
+        <SignIn store={store} {...props} />
       </Router>,
     );
     const emailInput = component.find('input[type="email"]');
@@ -61,15 +61,15 @@ describe('<SignUp/>', () => {
     component.unmount();
   });
   it(' should call onSubmit prop function when form is submitted', () => {
-    const handleSignUp = jest.fn();
+    const handleSignIn = jest.fn();
     const component = mount(
       <Router>
-        <SignUpComponent store={store} onSubmit={handleSignUp} {...props} />
+        <SignInComponent store={store} onSubmit={handleSignIn} {...props} />
       </Router>,
     );
     const form = component.find('form');
     form.simulate('submit');
-    expect(handleSignUp).toHaveBeenCalledTimes(1);
+    expect(handleSignIn).toHaveBeenCalledTimes(1);
     component.unmount();
   });
 });

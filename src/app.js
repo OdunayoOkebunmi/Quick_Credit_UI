@@ -5,9 +5,10 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Home from '@Pages/home/Home';
 import SignUp from '@Pages/signup/SignUp';
+import SignIn from '@Pages/signin/SignIn';
 import store from './redux/store';
 import PageNotFound from './components/PageNotFound';
-import '@Common/_react-toastify.scss';
+import '@Common/styles/react-toastify.scss';
 
 const App = () => (
   <Provider store={store}>
@@ -16,6 +17,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp} />
+        <Route exact path="/signin" component={SignIn} />
         <Route path="*" component={PageNotFound} />
       </Switch>
     </BrowserRouter>

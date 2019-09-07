@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import './Stories.scss';
-import '@Common/_utilities.scss';
+import '@Common/styles/_utilities.scss';
 import Story from './Story';
 import StoryCollection from './data/StoryCollection';
 

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import '@Common/_base.scss';
+import '@Common/styles/_base.scss';
 import Header from '@Layouts/header/Header';
 import Stories from '@Layouts/stories/Stories';
 import LoanCalculator from '@Layouts/loan-calculator/LoanCalculator';
