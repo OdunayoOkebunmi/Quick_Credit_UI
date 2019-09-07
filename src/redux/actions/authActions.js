@@ -63,15 +63,15 @@ export const userSignIn = (userData, history) => async (dispatch) => {
   dispatch(authLoading());
   try {
     const response = await API_SERVICE.post('/auth/signin', userData);
-    const { data: { data: { token } } } = response;
-
+    const { data: { data: { token, isAdmin } } } = response;
+    const pushLocation = isAdmin === false ? '/dashboard' : '/';
     localStorage.setItem('jwtToken', token);
 
     setAuthToken(token);
 
     dispatch(setCurrentUser(jwtDecode(token)));
 
-    history.push('/');
+    history.push(pushLocation);
 
     toast.dismiss();
     toast.success('Logged In successful');
