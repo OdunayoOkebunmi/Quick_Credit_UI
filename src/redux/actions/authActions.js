@@ -37,18 +37,44 @@ export const userSignUp = (userData, history) => async (dispatch) => {
   dispatch(authLoading());
   try {
     const response = await API_SERVICE.post('/auth/signup', userData);
-    const { data } = response.data;
+    const { data: { data: { token } } } = response;
 
-    localStorage.setItem('jwtToken', data.token);
+    localStorage.setItem('jwtToken', token);
 
-    setAuthToken(data.token);
+    setAuthToken(token);
 
-    dispatch(setCurrentUser(jwtDecode(data.token)));
+    dispatch(setCurrentUser(jwtDecode(token)));
+
+    history.push('/signin');
+
+    toast.dismiss();
+    toast.success('Registration successful');
+  } catch (err) {
+    const { data: { error } } = err.response;
+
+    toast.dismiss();
+    toast.error(error, { autoClose: 10000 });
+
+    dispatch(authFailed(error));
+  }
+};
+
+export const userSignIn = (userData, history) => async (dispatch) => {
+  dispatch(authLoading());
+  try {
+    const response = await API_SERVICE.post('/auth/signin', userData);
+    const { data: { data: { token } } } = response;
+
+    localStorage.setItem('jwtToken', token);
+
+    setAuthToken(token);
+
+    dispatch(setCurrentUser(jwtDecode(token)));
 
     history.push('/');
 
     toast.dismiss();
-    toast.success('Registration successful');
+    toast.success('Logged In successful');
   } catch (err) {
     const { data: { error } } = err.response;
 

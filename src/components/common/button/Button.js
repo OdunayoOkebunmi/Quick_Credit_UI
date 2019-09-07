@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '@Common/_buttons.scss';
+import '@Common/styles/_buttons.scss';
 
 const Button = ({ className, id, text }) => (
   <div className="form-group">

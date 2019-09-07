@@ -1,7 +1,7 @@
 
 [![CircleCI](https://circleci.com/gh/OdunayoOkebunmi/Quick_Credit_UI.svg?style=svg)](https://circleci.com/gh/OdunayoOkebunmi/Quick_Credit_UI)
-
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a7f0a48174e7df407fd4/test_coverage)](https://codeclimate.com/github/OdunayoOkebunmi/Quick_Credit_UI/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a7f0a48174e7df407fd4/maintainability)](https://codeclimate.com/github/OdunayoOkebunmi/Quick_Credit_UI/maintainability)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
  
 # Quick-Credit
