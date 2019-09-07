@@ -1,0 +1,106 @@
+
+/* ++++++++STYLING FOR USER DASHBOARD VIEW SECTION +++++++ */
+.content .user-dashboard-view {
+  flex: 1;
+  font-size: 1.2rem;
+  padding: 7rem 0;
+  overflow-x: auto;
+  background-color: var(--color-grey-light-2);
+
+}
+@media only screen and (max-width: 600px) {
+  .content .user-dashboard-view {
+    padding: 3rem 0;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .user-dashboard__history .caption {
+    font-size: 3rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .user-dashboard__history .caption {
+    font-size: 2.5rem;
+  }
+}
+.user-dashboard-view .user-dashboard__history--table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.user-dashboard__history--table td,
+.user-dashboard__history--table th {
+  border: 1px solid #ddd;
+  padding: 0.8rem;
+  height: 2rem;
+}
+
+.user-dashboard__history--table td {
+  height: 5rem;
+}
+.user-dashboard__history--table td a {
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  color: #fff;
+  background-color: var(--color-grey-dark-2);
+}
+.user-dashboard__history--table tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.user-dashboard__history--table tr:hover {
+  background-color: var(--color-grey-light-3);
+}
+
+.user-dashboard__history--table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* MEDIA QUERY TO MAKE TABLE RESPONSIVE */
+@media screen and (max-width: 600px) {
+  .user-dashboard__history--table > * > * > * {
+    display: block;
+  }
+  .user-dashboard__history--table thead {
+    display: none;
+  }
+
+  td {
+    border: none;
+    position: relative;
+    padding-left: 20rem;
+    margin-left: 22rem;
+    font-size: 1.2rem;
+  }
+  td::before {
+    position: absolute;
+    top: 1.2rem;
+    left: 0.6rem;
+    width: 20rem;
+    padding-right: 4rem;
+    white-space: nowrap;
+    margin-left: -22rem;
+  }
+  td::before {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+  }
+  td:nth-of-type(1):before {
+    content: "Loan ID";
+  }
+  td:nth-of-type(2):before {
+    content: "Date Created";
+  }
+  td:nth-of-type(3):before {
+    content: "Monthly Installments";
+  }
+  td:nth-of-type(4):before {
+    content: "Amount";
+  }
+}

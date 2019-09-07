@@ -7,12 +7,12 @@ import Footer from '@Layouts/footer/Footer';
 
 const Home = () => (
   <Fragment>
-
-    <Header />
-    <LoanCalculator />
-    <Stories />
-    <Footer />
-
+    <div className="container">
+      <Header />
+      <LoanCalculator />
+      <Stories />
+      <Footer />
+    </div>
   </Fragment>
 );
 export default Home;
