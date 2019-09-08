@@ -84,3 +84,10 @@ export const userSignIn = (userData, history) => async (dispatch) => {
     dispatch(authFailed(error));
   }
 };
+
+export const userLogOut = history => (dispatch) => {
+  localStorage.removeItem('jwtToken');
+  setAuthToken(false);
+  dispatch(setCurrentUser({}));
+  history.push('/');
+};
