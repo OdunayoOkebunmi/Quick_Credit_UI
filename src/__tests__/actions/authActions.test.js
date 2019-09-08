@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { instance, API_URL } from '@Utils/axiosInstance';
 import { AUTH_LOADING, AUTH_FAILED, SET_CURRENT_USER } from '@Actions/types';
-import { userSignUp, userSignIn } from '@Actions/authActions';
+import { userSignUp, userSignIn, userLogOut } from '@Actions/authActions';
 
 const mockStore = configureMockStore([thunk]);
 let store = mockStore();
@@ -202,5 +202,71 @@ describe('Login actions', () => {
         expect(actions[0].type).toEqual(expectedActions[0].type);
         done();
       });
+  });
+});
+
+describe('Login actions', () => {
+  beforeEach(() => {
+    moxios.install(instance);
+    store.clearActions();
+  });
+  afterEach(() => moxios.uninstall(instance));
+  it('should call AUTH_LOADING and SET_CURRENT_USER for a succesful login', (done) => {
+    moxios.stubRequest(`${API_URL}/auth/signin`, {
+      status: 200,
+      response: successResponse,
+    });
+    const expectedActions = [
+      {
+        type: AUTH_LOADING,
+        payload: {
+          error: null,
+          isAuthenticated: false,
+          status: 'authenticationLoading',
+          user: {},
+        },
+      },
+      {
+        type: 'SET_CURRENT_USER',
+        payload: {
+          status: 'authenticationSuccessful',
+          error: null,
+          user: {
+            payload: {
+              id: 12,
+              email: 'granger@mail.com',
+              isAdmin: false,
+            },
+            exp: 1568984994,
+            iat: 1567775394,
+          },
+          isAuthenticated: true,
+        },
+      },
+    ];
+
+    store = mockStore({});
+    const history = { push: jest.fn() };
+    store.dispatch(userSignIn(userData, history))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+        done();
+      });
+  });
+
+  it('Should log out a user', () => {
+    const history = { push: jest.fn() };
+    const expectedActions = [{
+      type: 'SET_CURRENT_USER',
+      payload:
+      {
+        status: 'authenticationSuccessful',
+        error: null,
+        user: {},
+        isAuthenticated: true,
+      },
+    }];
+    store.dispatch(userLogOut(history));
+    expect(store.getActions()).toEqual(expectedActions);
   });
 });
