@@ -3,10 +3,12 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-export const PrivateRoutes = ({ component: Component, auth, ...rest }) => {
+const PrivateRoutes = ({ component: Component, auth, ...rest }) => {
   const {
     isAuthenticated,
   } = auth;
+  // eslint-disable-next-line no-console
+  console.log(auth);
   return (
     <Route
       {...rest}

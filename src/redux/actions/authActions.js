@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { toast } from 'react-toastify';
 import jwtDecode from 'jwt-decode';
 import API_SERVICE from '@Utils/axiosInstance';
@@ -90,4 +91,11 @@ export const userLogOut = history => (dispatch) => {
   setAuthToken(false);
   dispatch(setCurrentUser({}));
   history.push('/');
+};
+
+export const getUser = () => (dispatch) => {
+  const token = localStorage.getItem('jwtToken');
+  const user = jwtDecode(token);
+  console.log('------>', user);
+  dispatch(setCurrentUser(user));
 };
