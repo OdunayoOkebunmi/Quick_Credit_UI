@@ -3,7 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-// import { PrivateRoutes } from '@Common/private-routes/PrivateRoutes';
+import PrivateRoutes from '@Common/private-routes/PrivateRoutes';
 import Home from '@Pages/home/Home';
 import SignUp from '@Pages/signup/SignUp';
 import SignIn from '@Pages/signin/SignIn';
@@ -20,7 +20,8 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/signin" component={SignIn} />
-        <Route exact path="/dashboard" component={Dashboard} />
+        {/* <Route exact path="/dashboard" component={Dashboard} /> */}
+        <PrivateRoutes path="/dashboard" component={Dashboard} />
         <Route component={PageNotFound} />
       </Switch>
     </Router>
