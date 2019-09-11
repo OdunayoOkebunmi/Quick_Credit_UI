@@ -26,7 +26,7 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 const store = mockStore(initialState);
 
-describe('<DashboardSidebar/>', () => {
+describe('<Dashboard/>', () => {
   it('should render without crashing', () => {
     const component = shallow(
       <Router>
@@ -35,14 +35,15 @@ describe('<DashboardSidebar/>', () => {
     );
     expect(component).toMatchSnapshot();
   });
+  it('should render without crashing', () => {
+    mount(
+      <Router>
+        <MainContent />
+      </Router>,
+    );
+  });
 });
-it('should render without crashing', () => {
-  mount(
-    <Router>
-      <MainContent />
-    </Router>,
-  );
-});
+
 describe('<DashboardSidebar/>', () => {
   it('should render without crashing', () => {
     mount(
@@ -60,15 +61,15 @@ describe('<DashboardSidebar/>', () => {
       </Router>,
     );
   });
-  it(' should call onSubmit prop function when form is submitted', () => {
+  it(' should call logOut prop function', () => {
     const logOut = jest.fn();
     const component = mount(
       <Router>
         <DashboardSidebar store={store} onClick={logOut} {...props} />
       </Router>,
     );
-    const form = component.find('Link').at(2);
-    form.simulate('click');
+    const findLogOut = component.find('Link').at(3);
+    findLogOut.simulate('click');
     expect(logOut).toHaveBeenCalledTimes(0);
     component.unmount();
   });

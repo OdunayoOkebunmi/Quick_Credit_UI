@@ -1,34 +1,27 @@
+/* eslint-disable indent */
+/* eslint-disable no-console */
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const PrivateRoutes = ({ component: Component, auth, ...rest }) => {
-  const {
-    isAuthenticated,
-  } = auth;
-  // eslint-disable-next-line no-console
-  console.log(auth);
-  return (
-    <Route
-      {...rest}
-      render={props => (isAuthenticated ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to="/" />
-      ))
-      }
-    />
+const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
+  <Route
+    {...rest}
+    render={props => (localStorage.getItem('jwtToken') ? (
+      <Component {...props} />
+    ) : (
+      <Redirect to="/signin" />
+    ))
+    }
+  />
   );
-};
-
-PrivateRoutes.propTypes = {
-  auth: PropTypes.object.isRequired,
+PrivateRoute.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
   component: PropTypes.node.isRequired,
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth,
+  isAuthenticated: state.auth.isAuthenticated,
 });
-
-export default connect(mapStateToProps)(PrivateRoutes);
+export default connect(mapStateToProps, null)(PrivateRoute);

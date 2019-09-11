@@ -1,20 +1,21 @@
+/* eslint-disable no-console */
 import React from 'react';
 import DashboardHeader from '@Common/dashboard/DashboardHeader';
-import DashboardSidebar from '@Common/dashboard/DashboardSidebar';
+import AdminDashboardSidebar from '@Common/dashboard/AdminDashboardSidebar';
 import MainContent from './MainContent';
 import '@Common/styles/dashboard.scss';
 import './MainContent.scss';
 
 
-const Dashboard = () => (
+const AdminDashboard = () => (
   <div className="dashboard-container">
     <DashboardHeader />
     <div className="content">
-      <DashboardSidebar />
+      <AdminDashboardSidebar />
       <MainContent />
     </div>
   </div>
 );
 
 
-export default Dashboard;
+export default AdminDashboard;
