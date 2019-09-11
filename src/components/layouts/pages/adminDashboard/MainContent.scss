@@ -1,0 +1,75 @@
+
+/* ++++++++STYLING FOR ADMIN USERS-LOAN APPLICATION VIEW SECTION +++++++ */
+.content .admin-users-loans--view {
+  flex: 1;
+  font-size: 1.3rem;
+  padding: 7rem 0;
+  overflow-x: auto;
+}
+@media only screen and (max-width: 600px) {
+  .content .admin-users-loans--view {
+    padding: 3rem 0;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .admin-users-loans__details .caption {
+    font-size: 3rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .admin-users-loans__details .caption {
+    font-size: 2.5rem;
+  }
+}
+.admin-users-loans--view .admin-users-loans__details--table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.admin-users-loans__details--table td,
+.admin-users-loans__details--table th {
+  border: 1px solid #ddd;
+  padding: 0.8rem;
+  height: 2rem;
+}
+
+.admin-users-loans__details--table td {
+  height: 5rem;
+}
+.admin-users-loans__details--table td a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+.admin-users-loans__details--table td a .fa-eye {
+  color: var(--color-grey-dark-2);
+}
+.admin-users-loans__details--table td a .fa-check {
+  color: green;
+}
+.admin-users-loans__details--table td a .fa-times {
+  color: red;
+}
+@media only screen and (max-width: 600px) {
+  .admin-users-loans__details--table td a {
+    background-color: var(--color-primary);
+    padding: 1rem 2rem;
+  }
+}
+.admin-users-loans__details--table tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.admin-users-loans__details--table tr:hover {
+  background-color: var(--color-grey-light-2);
+}
+
+.admin-users-loans__details--table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: var(--color-primary);
+  color: #fff;
+}

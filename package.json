@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest -u --coverage",
     "start": "export DEBUG=prod && node server/app.js",
     "dev": "webpack-dev-server --open --config build-utils/webpack.config.js --env.env=dev",
     "build": "webpack --config build-utils/webpack.config.js --env.env=prod",
