@@ -49,6 +49,7 @@ describe('Register actions', () => {
           isAuthenticated: false,
           status: 'authenticationLoading',
           user: {},
+          loading: true,
         },
       },
       {
@@ -66,6 +67,7 @@ describe('Register actions', () => {
             exp: 1568984994,
           },
           isAuthenticated: true,
+          loading: false,
         },
       },
     ];
@@ -93,6 +95,8 @@ describe('Register actions', () => {
           isAuthenticated: false,
           status: 'authenticationLoading',
           user: {},
+          loading: true,
+
         },
       },
       {
@@ -102,6 +106,8 @@ describe('Register actions', () => {
           error,
           user: {},
           isAuthenticated: false,
+          loading: false,
+
         },
 
       },
@@ -137,6 +143,8 @@ describe('Login actions', () => {
           isAuthenticated: false,
           status: 'authenticationLoading',
           user: {},
+          loading: true,
+
         },
       },
       {
@@ -154,6 +162,7 @@ describe('Login actions', () => {
             iat: 1567775394,
           },
           isAuthenticated: true,
+          loading: false,
         },
       },
     ];
@@ -181,6 +190,8 @@ describe('Login actions', () => {
           isAuthenticated: false,
           status: 'authenticationLoading',
           user: {},
+          loading: true,
+
         },
       },
       {
@@ -190,6 +201,8 @@ describe('Login actions', () => {
           error,
           user: {},
           isAuthenticated: false,
+          loading: false,
+
         },
 
       },
@@ -224,6 +237,8 @@ describe('Login actions', () => {
           isAuthenticated: false,
           status: 'authenticationLoading',
           user: {},
+          loading: true,
+
         },
       },
       {
@@ -241,6 +256,7 @@ describe('Login actions', () => {
             iat: 1567775394,
           },
           isAuthenticated: true,
+          loading: false,
         },
       },
     ];
@@ -264,6 +280,7 @@ describe('Login actions', () => {
         error: null,
         user: {},
         isAuthenticated: true,
+        loading: false,
       },
     }];
     store.dispatch(userLogOut(history));

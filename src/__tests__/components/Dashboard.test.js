@@ -8,7 +8,6 @@ import DashboardHeader from '@Common/dashboard/DashboardHeader';
 import DashboardSidebar from '@Common/dashboard/DashboardSidebar';
 import MainContent from '@Layouts/pages/dashboard/MainContent';
 
-
 const initialState = {
   auth: {
     error: null,

@@ -1,0 +1,87 @@
+
+.section-loan-apply {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+@media only screen and (max-width: 900px) {
+  .section-loan-apply {
+    display: block;
+    padding: 3rem 0;
+  }
+}
+.section-loan-apply .form-container {
+  width: 50%;
+  margin: 5rem 0;
+  background-color: #fff;
+  padding: 5rem;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.2s;
+}
+
+@media only screen and (max-width: 900px) {
+  .section-loan-apply .form-container {
+    display: block;
+    width: 60%;
+    margin: 5rem auto;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .section-loan-apply .form-container {
+    display: block;
+    width: 80%;
+    margin: 5rem auto;
+    border: none;
+    box-shadow: none;
+  }
+}
+.section-loan-apply .form-container .heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+}
+.section-loan-apply .form-container .flex-group {
+  display: flex;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 570px) {
+  .section-loan-apply .form-container .flex-group {
+    display: block;
+  }
+}
+.section-loan-apply .form-container #loan-apply-form label {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.section-loan-apply .form-container .form-group {
+  margin-bottom: 2rem;
+}
+
+.section-loan-apply .form-container .form-group .input-group {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.section-loan-apply .form-container .form-group .input-group .form-control {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  margin: 1rem 0;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  transition: all 0.2s;
+  font-size: 1.5rem;
+}
+

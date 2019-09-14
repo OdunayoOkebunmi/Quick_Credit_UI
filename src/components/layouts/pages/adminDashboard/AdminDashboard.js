@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import DashboardHeader from '@Common/dashboard/DashboardHeader';
 import AdminDashboardSidebar from '@Common/dashboard/AdminDashboardSidebar';
