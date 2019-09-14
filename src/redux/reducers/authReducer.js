@@ -1,10 +1,16 @@
+
+import { checkAuthorization } from '@Utils/setAuthToken';
 import { AUTH_LOADING, AUTH_FAILED, SET_CURRENT_USER } from '../actions/types';
+
+const token = localStorage.getItem('jwtToken');
+const isAuthenticated = checkAuthorization(token);
 
 export const initialState = {
   error: null,
   user: {},
-  isAuthenticated: false,
+  isAuthenticated,
   status: 'status',
+  loading: false,
 };
 
 export const authReducer = (state = initialState, { type, payload }) => {

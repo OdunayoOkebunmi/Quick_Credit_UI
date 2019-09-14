@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { toast } from 'react-toastify';
 import jwtDecode from 'jwt-decode';
 import API_SERVICE from '@Utils/axiosInstance';
@@ -12,6 +11,7 @@ export const authLoading = () => ({
     error: null,
     user: {},
     isAuthenticated: false,
+    loading: true,
   },
 });
 export const authFailed = error => ({
@@ -21,6 +21,7 @@ export const authFailed = error => ({
     error,
     user: {},
     isAuthenticated: false,
+    loading: false,
   },
 });
 
@@ -31,6 +32,7 @@ export const setCurrentUser = user => ({
     error: null,
     user,
     isAuthenticated: true,
+    loading: false,
   },
 });
 
@@ -71,7 +73,6 @@ export const userSignIn = (userData, history) => async (dispatch) => {
     setAuthToken(token);
 
     dispatch(setCurrentUser(jwtDecode(token)));
-
     history.push(pushLocation);
 
     toast.dismiss();
@@ -91,11 +92,4 @@ export const userLogOut = history => (dispatch) => {
   setAuthToken(false);
   dispatch(setCurrentUser({}));
   history.push('/');
-};
-
-export const getUser = () => (dispatch) => {
-  const token = localStorage.getItem('jwtToken');
-  const user = jwtDecode(token);
-  console.log('------>', user);
-  dispatch(setCurrentUser(user));
 };

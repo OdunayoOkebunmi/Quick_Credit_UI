@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 /* eslint-disable indent */
 /* eslint-disable no-console */
 import React from 'react';
@@ -6,16 +7,25 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const PrivateRoute = ({ component: Component, isAuthenticated, ...rest }) => (
+  // <Route
+  //   {...rest}
+  //   render={props => (localStorage.getItem('jwtToken') ? (
+  //     <Component {...props} />
+  //   ) : (
+  //     <Redirect to="/signin" />
+  //   ))
+  //   }
+  // />
   <Route
     {...rest}
-    render={props => (localStorage.getItem('jwtToken') ? (
+    render={props => (isAuthenticated ? (
       <Component {...props} />
     ) : (
-      <Redirect to="/signin" />
-    ))
+        <Redirect to="/" />
+      ))
     }
   />
-  );
+);
 PrivateRoute.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   component: PropTypes.node.isRequired,

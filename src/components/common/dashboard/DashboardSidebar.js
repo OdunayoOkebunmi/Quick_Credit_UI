@@ -16,11 +16,13 @@ class DashboardSidebar extends Component {
       <nav className="sidebar">
         <ul className="side-nav">
           <DashboardSidebarNav classNameList="side-nav__item side-nav__item--active" to="/dashboard" classNameLink="side-nav__link" text="Dashboard" />
-          <DashboardSidebarNav classNameList="side-nav__item" to="/" classNameLink="side-nav__link" text="Apply for loans" />
-          <DashboardSidebarNav classNameList="side-nav__item" to="/" classNameLink="side-nav__link" text="Profile" />
+          <DashboardSidebarNav classNameList="side-nav__item" to="/loan-application" classNameLink="side-nav__link" text="Apply for loans" />
+          <DashboardSidebarNav classNameList="side-nav__item" to="/profile" classNameLink="side-nav__link" text="Profile" />
           <DashboardSidebarNav classNameList="side-nav__item" to="/" classNameLink="side-nav__link" text="Logout" onClick={this.logOut} />
         </ul>
       </nav>
+
+
     );
   }
 }
