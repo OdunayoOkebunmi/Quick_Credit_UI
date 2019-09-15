@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from '@Common/private-routes/PrivateRoutes';
+import AdminRoute from '@Common/admin-routes/AdminRoute';
 import Home from '@Pages/home/Home';
 import SignUp from '@Pages/signup/SignUp';
 import SignIn from '@Pages/signin/SignIn';
@@ -22,9 +23,9 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/signin" component={SignIn} />
-        <Route exact path="/admin-dashboard" component={AdminDashboard} />
         <Route exact path="/loan-application" component={CreateLoan} />
-        <PrivateRoute path="/dashboard" component={Dashboard} />
+        <AdminRoute exact path="/admin-dashboard" component={AdminDashboard} />
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <Route component={PageNotFound} />
       </Switch>
     </Router>

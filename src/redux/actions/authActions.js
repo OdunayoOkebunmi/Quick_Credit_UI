@@ -67,7 +67,8 @@ export const userSignIn = (userData, history) => async (dispatch) => {
   try {
     const response = await API_SERVICE.post('/auth/signin', userData);
     const { data: { data: { token, isAdmin } } } = response;
-    const pushLocation = isAdmin === false ? '/dashboard' : '/';
+    const pushLocation = !isAdmin ? 'dashboard' : '/admin-dashboard';
+
     localStorage.setItem('jwtToken', token);
 
     setAuthToken(token);

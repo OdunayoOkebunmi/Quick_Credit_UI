@@ -11,9 +11,7 @@ const setAuthorizationToken = (token) => {
 
 export default setAuthorizationToken;
 
-
 export const checkAuthorization = (token) => {
-  // eslint-disable-next-line no-unused-vars
   let isAuthenticated;
   if (token) {
     isAuthenticated = false;
@@ -23,5 +21,12 @@ export const checkAuthorization = (token) => {
       isAuthenticated = true;
       return isAuthenticated;
     }
+  }
+};
+
+export const checkUserType = (token) => {
+  if (token) {
+    const { payload: { isAdmin } } = jwtDecode(token);
+    return isAdmin;
   }
 };

@@ -16,7 +16,7 @@ class AdminDashboardSidebar extends Component {
       <nav className="sidebar">
         <ul className="side-nav">
           <DashboardSidebarNav classNameList="side-nav__item" to="/verify-users" classNameLink="side-nav__link" text="Verify Users" />
-          <DashboardSidebarNav classNameList="side-nav__item side-nav__item--active" to="/dashboard" classNameLink="side-nav__link" text="Loan Applications" />
+          <DashboardSidebarNav classNameList="side-nav__item side-nav__item--active" to="/admin-dashboard" classNameLink="side-nav__link" text="Loan Applications" />
           <DashboardSidebarNav classNameList="side-nav__item" to="/current-loans" classNameLink="side-nav__link" text="Current Loans" />
           <DashboardSidebarNav classNameList="side-nav__item" to="/repaid-loan" classNameLink="side-nav__link" text="Repaid Loans" />
           <DashboardSidebarNav classNameList="side-nav__item" to="/post-repayment" classNameLink="side-nav__link" text="Post Repayment Transactions" />

@@ -34,7 +34,6 @@ class CreateLoan extends Component {
       amount: Number(amount),
       tenor: Number(tenor),
     };
-    console.log(typeof tenor);
 
     const { onSubmit, history } = this.props;
     onSubmit(loanData, history);
