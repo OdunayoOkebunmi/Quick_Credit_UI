@@ -18,10 +18,11 @@ export const checkAuthorization = (token) => {
   if (token) {
     isAuthenticated = false;
     const { exp } = jwtDecode(token);
+    const { payload: { isAdmin } } = jwtDecode(token);
     const currentTimeInSeconds = Date.now() / 1000;
     if (exp > currentTimeInSeconds) {
       isAuthenticated = true;
-      return isAuthenticated;
+      return { isAuthenticated, isAdmin };
     }
   }
 };

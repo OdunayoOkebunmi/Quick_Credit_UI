@@ -33,7 +33,6 @@ const loanData = {
 const errorResponse = {
   message: 'Registration failed',
 };
-// jest.setTimeout(30000);
 
 describe('Register actions', () => {
   beforeEach(() => {
