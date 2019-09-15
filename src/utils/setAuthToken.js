@@ -11,18 +11,22 @@ const setAuthorizationToken = (token) => {
 
 export default setAuthorizationToken;
 
-
 export const checkAuthorization = (token) => {
-  // eslint-disable-next-line no-unused-vars
   let isAuthenticated;
   if (token) {
     isAuthenticated = false;
     const { exp } = jwtDecode(token);
-    const { payload: { isAdmin } } = jwtDecode(token);
     const currentTimeInSeconds = Date.now() / 1000;
     if (exp > currentTimeInSeconds) {
       isAuthenticated = true;
-      return { isAuthenticated, isAdmin };
+      return isAuthenticated;
     }
+  }
+};
+
+export const checkUserType = (token) => {
+  if (token) {
+    const { payload: { isAdmin } } = jwtDecode(token);
+    return isAdmin;
   }
 };

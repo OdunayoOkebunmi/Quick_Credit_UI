@@ -90,6 +90,7 @@ SignIn.propTypes = {
 };
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
+  isAdmin: state.auth.user.isAdmin,
   error: state.auth.error,
 });
 

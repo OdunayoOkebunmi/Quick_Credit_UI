@@ -1,10 +1,12 @@
 /* eslint-disable no-console */
 
-import { checkAuthorization } from '@Utils/setAuthToken';
+import { checkAuthorization, checkUserType } from '@Utils/setAuthToken';
 import { AUTH_LOADING, AUTH_FAILED, SET_CURRENT_USER } from '../actions/types';
 
 const token = localStorage.getItem('jwtToken');
-const { isAuthenticated, isAdmin } = checkAuthorization(token);
+const isAuthenticated = checkAuthorization(token);
+const isAdmin = checkUserType(token);
+
 export const initialState = {
   error: null,
   user: { isAdmin },
