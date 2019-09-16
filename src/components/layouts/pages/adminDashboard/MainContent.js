@@ -1,138 +1,85 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { fetchAllLoans } from '@Actions/loanActions';
 
-const MainContent = () => (
-  <main className="admin-users-loans--view">
-    <div className="admin-users-loans__details">
-      <h3 className="heading-secondary">
-        loan applications
-      </h3>
-      <table className="admin-users-loans__details--table">
-        <thead>
-          <tr>
-            <th>Loan ID</th>
-            <th>Email</th>
-            <th>Date Created</th>
-            <th>Loan Status</th>
-            <th>Repaid</th>
-            <th>Tenor</th>
-            <th>Amount ₦</th>
-            <th>
-              Monthly
-              {' '}
-              <br />
-              Installments
-              {' '}
-              <br />
-              ₦
-            </th>
-            <th>
-              Balance
-              {' '}
-              <br />
-              ₦
-            </th>
-            <th>
-              Interest
-              {' '}
-              <br />
-              ₦
-            </th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>#122392</td>
-            <td>odun@mail.com</td>
-            <td>2019/01/01</td>
-            <td>Pending</td>
-            <td>False</td>
-            <td>10</td>
-            <td>2,000,000</td>
-            <td>210,000</td>
-            <td>2,000,000</td>
-            <td>100,000</td>
-            <td>
-              <a
-                href="#user-loan-popup"
-                title="View Single Loan"
-              >
-                <i className="fa fa-eye" />
+class MainContent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loans: [],
+    };
+  }
 
-              </a>
-              <a href="#">
-                <i className="fa fa-check" title="Approve Loan" />
+  async componentDidMount() {
+    try {
+      const { fetchAllLoans: getAllLoans } = this.props;
+      const loans = await getAllLoans();
+      this.setState({ loans });
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log(e);
+      // this.setState({ errors: { error: 'Something unusual happened, please try again' } });
+    }
+  }
 
-              </a>
-              <a href="#">
-                <i className="fa fa-times" title="Reject Loan" />
+  renderTableData() {
+    const { loans } = this.state;
+    return loans.map((data, index) => {
+      const {
+        id, email, tenor, amount, paymentInstallment, interest, createdOn,
+      } = data;
+      return (
+        <tr key={index}>
+          <td>{id}</td>
+          <td>{email}</td>
+          <td>{tenor}</td>
+          <td>{amount}</td>
+          <td>{paymentInstallment}</td>
+          <td>{interest}</td>
+          <td>{createdOn}</td>
+        </tr>
+      );
+    });
+  }
 
-              </a>
-            </td>
-          </tr>
+  render() {
+    return (
 
-          <tr>
-            <td>#122323</td>
-            <td>harry@hedwig.com</td>
-            <td>2019/01/01</td>
-            <td>Approved</td>
-            <td>True</td>
-            <td>12</td>
-            <td>150,000</td>
-            <td>13,125</td>
-            <td>0</td>
-            <td>7,500</td>
-            <td>
-              <a
-                href="#user-loan-popup"
-                title="View Single Loan"
-              >
-                <i className="fa fa-eye" />
+      <main className="user-dashboard-view">
+        <div className="user-dashboard__history">
+          <h3 className="heading-secondary">
+            Transaction details
+          </h3>
+          <table className="user-dashboard__history--table">
+            <thead>
+              <tr>
+                <th>Loan ID</th>
+                <th>Email</th>
+                <th>Tenor</th>
+                <th>Amount</th>
+                <th>Monthly Installemnts</th>
+                <th>Interest</th>
+                <th>Date Created</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.renderTableData()}
+            </tbody>
 
-              </a>
-              <a href="#">
-                <i className="fa fa-check" title="Approve Loan" />
+          </table>
+        </div>
+      </main>
 
-              </a>
-              <a href="#">
-                <i className="fa fa-times" title="Reject Loan" />
+    );
+  }
+}
 
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>#122323</td>
-            <td>gandalf@gray.com</td>
-            <td>2018/02/11</td>
-            <td>Declined</td>
-            <td>False</td>
-            <td>4</td>
-            <td>100,000</td>
-            <td>30,000</td>
-            <td>100,000</td>
-            <td>5000</td>
-            <td>
-              <a
-                href="#user-loan-popup"
-                title="View Single Loan"
-              >
-                <i className="fa fa-eye" />
-
-              </a>
-              <a href="#">
-                <i className="fa fa-check" title="Approve Loan" />
-
-              </a>
-              <a href="#">
-                <i className="fa fa-times" title="Reject Loan" />
-
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </main>
-);
-
-export default MainContent;
+MainContent.propTypes = {
+  fetchAllLoans: PropTypes.func.isRequired,
+};
+export default connect(
+  null,
+  { fetchAllLoans },
+)(MainContent);

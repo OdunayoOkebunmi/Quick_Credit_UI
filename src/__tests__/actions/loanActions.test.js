@@ -1,9 +1,12 @@
+/* eslint-disable no-console */
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { instance, API_URL } from '@Utils/axiosInstance';
-import { CREATE_LOAN, ACTION_LOADING, NOT_LOADING } from '@Actions/types';
-import { createLoan } from '@Actions/loanActions';
+import {
+  CREATE_LOAN, ACTION_LOADING, NOT_LOADING, FETCH_LOANS,
+} from '@Actions/types';
+import { createLoan, fetchAllLoans } from '@Actions/loanActions';
 
 const mockStore = configureMockStore([thunk]);
 let store = mockStore();
@@ -34,7 +37,7 @@ const errorResponse = {
   message: 'Registration failed',
 };
 
-describe('Register actions', () => {
+describe('Register loans', () => {
   beforeEach(() => {
     moxios.install(instance);
     store.clearActions();
@@ -112,6 +115,92 @@ describe('Register actions', () => {
     ];
     store = mockStore({});
     await store.dispatch(createLoan())
+      .then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual(expectedActions[0]);
+        expect(actions[0].type).toEqual(expectedActions[0].type);
+        done();
+      });
+  });
+});
+
+describe('Fetch all loans by Admin', () => {
+  beforeEach(() => {
+    moxios.install(instance);
+    store.clearActions();
+  });
+  afterEach(() => moxios.uninstall(instance));
+  it('should call AUTH_LOADING and FETCH_LOANS for getting all loans', (done) => {
+    moxios.stubRequest(`${API_URL}/loans`, {
+      status: 200,
+      response: successResponse,
+    });
+    const expectedActions = [
+      {
+        type: ACTION_LOADING,
+        payload: {
+          status: 'actionLoading',
+          error: null,
+          data: {},
+        },
+      },
+      {
+        type: FETCH_LOANS,
+        payload: {
+          status: 'loansFetched',
+          error: null,
+          loans: {
+            loanId: 0,
+            id: 0,
+            user: 'Jane Doe',
+            status: 'pending',
+            repaid: false,
+            tenor: 2,
+            amount: 5000,
+            paymentInstallments: 0,
+            balance: 0,
+            interest: 0,
+          },
+        },
+      },
+    ];
+
+    store = mockStore({});
+    store.dispatch(fetchAllLoans())
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+        done();
+      });
+  });
+
+  it('should call AUTH_LOADING and AUTH_FAILED for a failed registration', async (done) => {
+    const error = null;
+    moxios.stubRequest(`${API_URL}/loans`, {
+      status: 401,
+      response: errorResponse,
+    });
+    const expectedActions = [
+      {
+        type: ACTION_LOADING,
+        payload: {
+          status: 'actionLoading',
+          error: null,
+          data: {},
+        },
+      },
+      {
+        type: NOT_LOADING,
+        payload: {
+          status: 'actionFailed',
+          error,
+          data: {},
+
+        },
+
+      },
+    ];
+    store = mockStore({});
+    await store.dispatch(fetchAllLoans())
       .then(() => {
         const actions = store.getActions();
         expect(actions[0]).toEqual(expectedActions[0]);

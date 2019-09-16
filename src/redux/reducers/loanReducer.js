@@ -1,9 +1,12 @@
-import { CREATE_LOAN, ACTION_LOADING, NOT_LOADING } from '@Actions/types';
+import {
+  CREATE_LOAN, ACTION_LOADING, NOT_LOADING, FETCH_LOANS,
+} from '@Actions/types';
 
 export const initialState = {
   error: null,
   data: {},
   status: 'status',
+  loans: [],
 };
 
 export const loanReducer = (state = initialState, { type, payload }) => {
@@ -24,6 +27,12 @@ export const loanReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         data: payload.data,
+        status: payload.status,
+      };
+    case FETCH_LOANS:
+      return {
+        ...state,
+        loans: payload.loans,
         status: payload.status,
       };
     default:

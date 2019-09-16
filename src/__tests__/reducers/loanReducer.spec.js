@@ -1,4 +1,6 @@
-import { actionLoading, actionFailed, createUserLoan } from '@Actions/loanActions';
+import {
+  actionLoading, actionFailed, createUserLoan, getAllLoans,
+} from '@Actions/loanActions';
 import { initialState, loanReducer } from '@Reducers/loanReducer';
 
 let action, newState;
@@ -11,7 +13,18 @@ const loanData = {
   address: 'Hogwarts School of Wizardry',
 };
 const error = 'an error occured';
-
+const loans = [{
+  loanId: 0,
+  id: 0,
+  user: 'Jane Doe',
+  status: 'pending',
+  repaid: false,
+  tenor: 2,
+  amount: 5000,
+  paymentInstallments: 0,
+  balance: 0,
+  interest: 0,
+}];
 
 describe('Loan Reducer', () => {
   it('should return initial state for unknown action types', () => {
@@ -43,5 +56,12 @@ describe('Loan Reducer', () => {
     expect(payload.data).toEqual({});
     expect(payload.status).toEqual('actionFailed');
     expect(payload.error).toEqual(error);
+  });
+  it('should handle action with type  FETCH_LOANS', () => {
+    const { type, payload } = getAllLoans(loans);
+    newState = loanReducer(initialState, { type, payload });
+    expect(type).toEqual('FETCH_LOANS');
+    expect(payload.status).toEqual('loansFetched');
+    expect(payload.loans).toEqual(loans);
   });
 });

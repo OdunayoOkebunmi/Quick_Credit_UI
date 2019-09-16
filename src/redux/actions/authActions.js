@@ -88,7 +88,7 @@ export const userSignIn = (userData, history) => async (dispatch) => {
   }
 };
 
-export const userLogOut = history => (dispatch) => {
+export const userLogOut = history => async (dispatch) => {
   localStorage.removeItem('jwtToken');
   setAuthToken(false);
   dispatch(setCurrentUser({}));

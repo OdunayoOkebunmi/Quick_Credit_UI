@@ -4,3 +4,4 @@ export const AUTH_FAILED = 'AUTH_FAILED';
 export const ACTION_LOADING = 'ACTION_LOADING';
 export const CREATE_LOAN = 'CREATE_LOAN';
 export const NOT_LOADING = 'NOT_LOADING';
+export const FETCH_LOANS = 'FETCH_LOANS';
