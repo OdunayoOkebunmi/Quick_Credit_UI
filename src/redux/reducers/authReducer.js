@@ -33,7 +33,7 @@ export const authReducer = (state = initialState, { type, payload }) => {
     case SET_CURRENT_USER:
       return {
         ...state,
-        user: payload.user,
+        user: { ...state.user },
         isAuthenticated: payload.isAuthenticated,
         status: payload.status,
       };
