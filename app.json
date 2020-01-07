@@ -1,0 +1,13 @@
+{
+  "addons": [],
+  "buildpacks": [],
+  "env": {
+    "API_BASE_URL": {
+      "required": true
+    }
+  },
+  "formation": {},
+  "name": "quick-credit",
+  "scripts": {},
+  "stack": "heroku-18"
+}
