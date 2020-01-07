@@ -15,7 +15,7 @@ const DashboardHeader = () => (
     </form>
     <nav className="user-nav">
       <div className="user-nav__user">
-        <span className="user-nav__user-name">Joe Doe</span>
+        <span className="user-nav__user-name">Jane Doe</span>
       </div>
     </nav>
   </header>
