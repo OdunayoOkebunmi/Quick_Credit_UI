@@ -69,22 +69,22 @@
   color: var(--color-grey-dark);
 }
 .section-sign-up .form-container .alt-registration {
- font-size: 1.6rem;
- text-align: center;
- &__link{
-  text-decoration: none;
-  margin: 0 1rem;
-  color:var(--color-primary);
-  letter-spacing: 2px;
-  transition: all 0.2s;
- }
- &__link:hover{
- border-bottom: 1px dotted var(--color-primary);
- }
+  font-size: 1.6rem;
+  text-align: center;
+  &__link {
+    text-decoration: none;
+    margin: 0 1rem;
+    color: var(--color-primary);
+    letter-spacing: 2px;
+    transition: all 0.2s;
+  }
+  &__link:hover {
+    border-bottom: 1px dotted var(--color-primary);
+  }
 }
 
-.Toastify{
-&__toast-body{ 
-  font-size: 1.6rem;
-}
+.Toastify {
+  &__toast-body {
+    font-size: 1.6rem;
+  }
 }

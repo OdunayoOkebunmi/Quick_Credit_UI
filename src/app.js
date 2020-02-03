@@ -1,6 +1,6 @@
 import '@babel/polyfill';
 import React from 'react';
-import { Provider } from 'react-redux';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import PrivateRoute from '@Common/private-routes/PrivateRoutes';
@@ -11,12 +11,13 @@ import SignIn from '@Pages/signin/SignIn';
 import Dashboard from '@Pages/dashboard/Dashboard';
 import AdminDashboard from '@Pages/adminDashboard/AdminDashboard';
 import CreateLoan from '@Pages/createLoan/CreateLoan';
-import store from './redux/store';
+
 import PageNotFound from './components/PageNotFound';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const App = () => (
-  <Provider store={store}>
+  <>
     <ToastContainer />
     <Router>
       <Switch>
@@ -29,6 +30,6 @@ const App = () => (
         <Route component={PageNotFound} />
       </Switch>
     </Router>
-  </Provider>
+  </>
 );
 export default App;

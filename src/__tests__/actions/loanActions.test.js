@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';

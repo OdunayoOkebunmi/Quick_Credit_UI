@@ -1,16 +1,23 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
-const setAuthorizationToken = (token) => {
-  if (token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  } else {
-    delete axios.defaults.headers.common.Authorization;
+// export const setAuthorizationToken = (token) => {
+//   if (token) {
+//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+//   } else {
+//     delete axios.defaults.headers.common.Authorization;
+//   }
+// };
+const instance = axios.create({
+  baseURL: process.env.API_URL,
+});
+
+export const setAuthorizationToken = (token) => {
+  if (!token) {
+    delete instance.defaults.headers.common.Authorization;
   }
+  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
-
-export default setAuthorizationToken;
-
 export const checkAuthorization = (token) => {
   let isAuthenticated;
   if (token) {

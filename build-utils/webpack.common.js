@@ -2,7 +2,6 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -16,8 +15,15 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.(js)$/, exclude: /node_modules/, use: ['babel-loader', 'eslint-loader'] },
-      { test: /\.(css|sass|scss)$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader', 'eslint-loader'],
+      },
+      {
+        test: /\.(css|sass|scss)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
       { test: /\.(gif|png|jpe?g|svg)$/i, use: 'file-loader' },
     ],
   },
@@ -31,7 +37,6 @@ module.exports = {
       '@Pages': path.resolve(__dirname, '../', 'src/components/layouts/pages/'),
       '@Actions': path.resolve(__dirname, '../', 'src/redux/actions/'),
       '@Reducers': path.resolve(__dirname, '../', 'src/redux/reducers/'),
-
     },
   },
   plugins: [
@@ -41,4 +46,7 @@ module.exports = {
       favicon: 'public/favicon.png',
     }),
   ],
+  node: {
+    fs: 'empty',
+  },
 };

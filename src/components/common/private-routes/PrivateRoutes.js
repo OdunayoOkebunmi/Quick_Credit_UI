@@ -1,33 +1,36 @@
+/* eslint-disable jsx-quotes */
 /* eslint-disable react/jsx-indent */
 /* eslint-disable indent */
-/* eslint-disable no-console */
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const PrivateRoute = ({
-  component: Component, isAuthenticated, isAdmin, ...rest
-}) => (
-
+export const PrivateRoutes = ({ component: Component, auth, ...rest }) => {
+  const {
+    isAuthenticated,
+    user: { payload: { isAdmin } },
+  } = auth;
+  return (
     <Route
       {...rest}
       render={props => (isAuthenticated && !isAdmin ? (
         <Component {...props} />
       ) : (
-          <Redirect to="/" />
+          <Redirect to='/' />
         ))
       }
     />
   );
-PrivateRoute.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
-  isAdmin: PropTypes.bool.isRequired,
-  component: PropTypes.node.isRequired,
+};
+
+PrivateRoutes.propTypes = {
+  auth: PropTypes.object.isRequired,
+  component: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
-  isAdmin: state.auth.user.isAdmin,
+  auth: state.auth,
 });
-export default connect(mapStateToProps, null)(PrivateRoute);
+
+export default connect(mapStateToProps)(PrivateRoutes);
