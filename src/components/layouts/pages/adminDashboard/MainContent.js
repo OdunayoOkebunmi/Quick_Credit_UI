@@ -16,18 +16,29 @@ class MainContent extends Component {
       const { fetchAllLoans: getAllLoans } = this.props;
       const loans = await getAllLoans();
       this.setState({ loans });
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.log(e);
-      // this.setState({ errors: { error: 'Something unusual happened, please try again' } });
+    } catch (error) {
+      throw error;
     }
+  }
+
+  formatDate(date) {
+    const currentDatetime = new Date(date);
+    const formattedDate = `${currentDatetime.getDate()}-${currentDatetime.getMonth()
+      + 1}-${currentDatetime.getFullYear()}`;
+    return formattedDate;
   }
 
   renderTableData() {
     const { loans } = this.state;
     return loans.map((data, index) => {
       const {
-        id, email, tenor, amount, paymentInstallment, interest, createdOn,
+        id,
+        email,
+        tenor,
+        amount,
+        paymentInstallment,
+        interest,
+        createdOn,
       } = data;
       return (
         <tr key={index}>
@@ -37,7 +48,8 @@ class MainContent extends Component {
           <td>{amount}</td>
           <td>{paymentInstallment}</td>
           <td>{interest}</td>
-          <td>{createdOn}</td>
+          <td>{this.formatDate(createdOn)}</td>
+          <td>{}</td>
         </tr>
       );
     });
@@ -45,12 +57,9 @@ class MainContent extends Component {
 
   render() {
     return (
-
       <main className="user-dashboard-view">
         <div className="user-dashboard__history">
-          <h3 className="heading-secondary">
-            Transaction details
-          </h3>
+          <h3 className="heading-secondary">Transaction details</h3>
           <table className="user-dashboard__history--table">
             <thead>
               <tr>
@@ -64,14 +73,10 @@ class MainContent extends Component {
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
-              {this.renderTableData()}
-            </tbody>
-
+            <tbody>{this.renderTableData()}</tbody>
           </table>
         </div>
       </main>
-
     );
   }
 }
@@ -79,7 +84,4 @@ class MainContent extends Component {
 MainContent.propTypes = {
   fetchAllLoans: PropTypes.func.isRequired,
 };
-export default connect(
-  null,
-  { fetchAllLoans },
-)(MainContent);
+export default connect(null, { fetchAllLoans })(MainContent);

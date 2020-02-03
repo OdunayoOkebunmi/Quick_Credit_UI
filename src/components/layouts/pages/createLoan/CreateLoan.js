@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -42,8 +41,6 @@ class CreateLoan extends Component {
 
   render() {
     const {
-      firstName,
-      lastName,
       amount,
       tenor,
     } = this.state;
@@ -56,26 +53,6 @@ class CreateLoan extends Component {
             LOAN APPLICATION
           </h2>
           <form id="loan-apply-form" onSubmit={this.handleCreateLoan}>
-            <label htmlFor="user-fname">First Name</label>
-            <InputField
-              required
-              value={firstName}
-              type="text"
-              id="new-user-fname"
-              className="form-control"
-              name="firstName"
-              onChange={this.handleInputChange}
-            />
-            <label htmlFor="user-lname">Last Name</label>
-            <InputField
-              required
-              value={lastName}
-              type="text"
-              id="new-user-lname"
-              className="form-control"
-              name="lastName"
-              onChange={this.handleInputChange}
-            />
             <div className="flex-group">
               <div>
                 <label htmlFor="amount">Loan Amount ₦</label>
@@ -92,7 +69,7 @@ class CreateLoan extends Component {
               <div>
                 <label htmlFor="user-interest-amount">Interest ₦</label>
                 <InputField
-                  id="tenor"
+                  id="interest"
                   className="form-control"
                   placeholder="5%"
                   disabled

@@ -6,23 +6,42 @@ import { userLogOut } from '@Actions/authActions';
 import DashboardSidebarNav from './DashboardSidebarNav';
 
 class DashboardSidebar extends Component {
-  logOut = () => {
+  userLogOut = () => {
     const { quit, history } = this.props;
     return quit(history);
-  }
+  };
 
   render() {
     return (
       <nav className="sidebar">
         <ul className="side-nav">
-          <DashboardSidebarNav classNameList="side-nav__item side-nav__item--active" to="/dashboard" classNameLink="side-nav__link" text="Dashboard" />
-          <DashboardSidebarNav classNameList="side-nav__item" to="/loan-application" classNameLink="side-nav__link" text="Apply for loans" />
-          <DashboardSidebarNav classNameList="side-nav__item" to="/profile" classNameLink="side-nav__link" text="Profile" />
-          <DashboardSidebarNav classNameList="side-nav__item" to="/" classNameLink="side-nav__link" text="Logout" onClick={this.logOut} />
+          <DashboardSidebarNav
+            classNameList="side-nav__item side-nav__item--active"
+            to="/dashboard"
+            classNameLink="side-nav__link"
+            text="Dashboard"
+          />
+          <DashboardSidebarNav
+            classNameList="side-nav__item"
+            to="/loan-application"
+            classNameLink="side-nav__link"
+            text="Apply for loans"
+          />
+          <DashboardSidebarNav
+            classNameList="side-nav__item"
+            to="/profile"
+            classNameLink="side-nav__link"
+            text="Profile"
+          />
+          <DashboardSidebarNav
+            classNameList="side-nav__item"
+            to="/"
+            classNameLink="side-nav__link"
+            text="Log Out"
+            onClick={this.userLogOut}
+          />
         </ul>
       </nav>
-
-
     );
   }
 }

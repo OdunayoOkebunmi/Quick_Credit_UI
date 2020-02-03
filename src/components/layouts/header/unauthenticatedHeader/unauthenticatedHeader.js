@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '@Common/logo/Logo';
-import './Navbar.scss';
+import '../Navbar.scss';
 
-const Navbar = () => (
+const UnauthenticatedHeader = () => (
   <nav className="nav-bar">
     <Link to="/">
       <Logo />
@@ -18,9 +18,8 @@ const Navbar = () => (
         <Link to="/signup" className=" nav-link nav-link__register">
           Register
         </Link>
-
       </li>
     </ul>
   </nav>
 );
-export default Navbar;
+export default UnauthenticatedHeader;

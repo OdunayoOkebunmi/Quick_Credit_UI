@@ -5,7 +5,6 @@ import MainContent from './MainContent';
 import '@Common/styles/dashboard.scss';
 import './MainContent.scss';
 
-
 const AdminDashboard = () => (
   <div className="dashboard-container">
     <DashboardHeader />
@@ -14,7 +13,7 @@ const AdminDashboard = () => (
       <MainContent />
     </div>
   </div>
+  // <>Hello</>
 );
-
 
 export default AdminDashboard;

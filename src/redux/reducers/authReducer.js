@@ -1,19 +1,12 @@
-/* eslint-disable no-console */
 
-import { checkAuthorization, checkUserType } from '@Utils/setAuthToken';
-import { AUTH_LOADING, AUTH_FAILED, SET_CURRENT_USER } from '../actions/types';
-
-const token = localStorage.getItem('jwtToken');
-const isAuthenticated = checkAuthorization(token);
-const isAdmin = checkUserType(token);
+import {
+  AUTH_LOADING, AUTH_FAILED, SET_CURRENT_USER, LOGOUT,
+} from '../actions/types';
 
 export const initialState = {
-  error: null,
-  user: { isAdmin },
-  isAuthenticated,
-  status: 'status',
-  loading: false,
-
+  authenticating: false,
+  isAuthenticated: false,
+  user: {},
 };
 
 export const authReducer = (state = initialState, { type, payload }) => {
@@ -21,21 +14,26 @@ export const authReducer = (state = initialState, { type, payload }) => {
     case AUTH_LOADING:
       return {
         ...state,
-        status: payload.status,
+        authenticating: true,
       };
     case AUTH_FAILED:
       return {
         ...state,
-        error: payload.error,
-        status: payload.status,
-
+        authenticating: false,
       };
     case SET_CURRENT_USER:
       return {
         ...state,
-        user: { ...state.user },
-        isAuthenticated: payload.isAuthenticated,
-        status: payload.status,
+        authenticating: false,
+        isAuthenticated: true,
+        user: payload,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        isAuthenticated: false,
+        user: {},
+        authenticating: false,
       };
     default:
       return state;
