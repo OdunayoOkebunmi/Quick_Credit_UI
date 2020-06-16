@@ -9,8 +9,8 @@
 > Quick Credit is an online lending platform that provides short term soft loans to individuals.
 
 
-## Heroku Deployment
-https://quick-credit-ui.herokuapp.com/
+## Netlify Deployment
+https://quickcredit.netlify.app/
 
 ## Pivotal Tracker Stories
 https://www.pivotaltracker.com/n/projects/2388490
