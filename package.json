@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/OdunayoOkebunmi/Quick_Credit_UI#readme",
   "devDependencies": {
-    "@babel/core": "^7.4.5",
+    "@babel/core": "^7.29.6",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
